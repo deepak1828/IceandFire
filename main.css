@@ -1,0 +1,262 @@
+body{
+	padding-top:0px;
+	background-color: #FBE9E7;
+}
+#img-slider{
+	width:100%;
+	height:330px;
+	border:1px solid black;
+	margin:52px auto;
+	position: relative;
+}
+#img-slider>img{
+	width:100%;
+	height:100%;
+	position: absolute;
+}
+#img-slider>.btn{
+	position: absolute;
+	width:50px;
+	height:50px;
+	border:none;
+	border-radius:25px;
+	top:125px;
+	background: orange;
+	color:white;
+	font-size:25px;
+}
+#img-slider>#btn1:hover{
+	box-shadow:10px 0px 20px 0px white;
+}
+#img-slider>#btn2{
+	position: relative;
+	float: right;
+}
+#img-slider>#btn2:hover{
+	box-shadow:-10px 0px 20px 0px white;
+}
+.btn-danger{
+	margin-top: 10px;
+}
+.glyphicon {
+    font-size: 1.2em;
+    padding-left: 5px;
+}
+.main-image{
+	display:block;
+	width: 120px;
+	height: 120px;
+	margin: 0px auto;
+}
+@media screen and (max-width: 480px){
+	.main-image{
+		width: 80px;
+		height: 80px;
+	}
+}
+.intro-nav{
+	color: black;
+	cursor: pointer;
+	font-family: cursive;
+}
+.intro-nav:hover{
+	text-decoration: none;
+}
+.move-top {	
+	position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    background-color: #37474F;
+	border-radius: 10px;
+    opacity: 0.7;
+    display: none;
+}
+.move-top .fa-inverse{
+	color: red;
+}
+.move-top:hover{
+	opacity: 1;
+	cursor: pointer; 
+}
+.type-image{
+	width: 80px;
+	height: 80px;
+	margin: 20px auto;	
+}
+.toggle-entry{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 40px;
+}
+.houses{
+	margin-top: 3%;
+	box-shadow: 1px 1px 5px grey; 
+	background: linear-gradient(to bottom,#B2FF59,#EEFF41);	
+	height: 18em;
+	color: #060606;
+	border-radius: 20%;
+}
+.houses:hover{
+	border-radius:0;
+	box-shadow: 1px 3px 13px #0a0202; 
+}
+.btn-custom-house{
+	display: block;
+	padding: 2px 14px;
+	border-radius: 10px; 
+	margin: auto;
+	color: #e4d6d6;
+	background-color: #E65100;
+}
+.house-jumbo{
+	background-image: linear-gradient(rgba(9, 8, 8, 0.4),rgba(35, 33, 33, 0.8)),url("images/palace.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.btn-custom{
+	display: block;
+	padding: 2px 14px;
+	border-radius: 10px; 
+	margin: auto;
+	color: #e4d6d6;
+	background-color: #00838F;
+}
+.characters{
+	margin-top: 5%;
+	/*border-top-left-radius: 20px;
+	border-top-right-radius: 20px;*/
+	background: linear-gradient(to bottom,#9C27B0,#FF80AB);
+	box-shadow: 1px 1px 5px grey; 
+	width:300px;
+	height: 18em;
+	-webkit-transform:skew(-15deg);
+	-moz-transform:skew(-15deg);
+	-o-transform:skew(-15deg);
+	transform:skew(-15deg);
+	margin-left: 6%;
+}
+.characters:hover{
+	border-radius:25%;
+	box-shadow: 1px 3px 13px #0a0202; 
+}
+.char-jumbo{
+	background-image: linear-gradient(rgba(7, 7, 5, 0.8),rgba(86, 67, 67, 0.6)),url("images/char.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 18em; 
+}
+.type-image-book{
+	width: 60px;
+	height: 60px;
+	margin: 10px auto;	
+}
+.books{
+	width:300px;
+	height:300px; 	
+	margin-top:5%;
+	background: linear-gradient(to bottom,#F44336,#FFEE58);
+	border-radius:50%;
+	box-shadow:0 0 0 2.5px #03A9F4;
+	box-sizing: border-box;
+	text-align: center;
+	transition: 0.5s;
+}
+.books:hover{
+	border-radius:25%;
+	box-shadow: 1px 3px 20px grey; 
+}
+.book-jumbo{
+	background-image: url("images/book.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.bg{
+	margin-top:-15px;
+	background-color: #D7CCC8;
+}
+.book-content{
+	margin-top: 10px; 
+}
+
+
+/************  ANIMATIONS  *************/
+
+.all-details{
+	transition: 0.4s ease-out all;
+}
+.all-details.ng-enter{
+	opacity: 0;
+}
+.all-details.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+.all-details.ng-leave {
+	opacity: 0.4;
+}
+.all-details.ng-leave.ng-leave-active {
+	opacity: 0;
+}	
+.book-details{
+	transition: 0.3s ease-out all;
+}
+.book-details.ng-enter{
+	opacity: 0;
+}
+.book-details.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+.book-details.ng-leave {
+	opacity: 0.5;
+}
+.book-details.ng-leave.ng-leave-active {
+	opacity: 0;
+}		
+.char-details{
+	transition: 0.3s ease-out all;
+}
+.char-details.ng-enter{
+	opacity: 0;
+}
+.char-details.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+.char-details.ng-leave {
+	opacity: 0.6;
+}
+.char-details.ng-leave.ng-leave-active {
+	opacity: 0;
+}	
+.house-details{
+	transition: 0.3s ease-out all;
+}
+.house-details.ng-enter{
+	opacity: 0;
+}
+.house-details.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+.house-details.ng-leave {
+	opacity: 0.6;
+}
+.house-details.ng-leave.ng-leave-active {
+  	opacity: 0;
+}	
+.page {
+	transition: 0.4s ease-out all;
+}	
+.page.ng-enter {
+	opacity: 0;
+}	
+.page.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+.page.ng-leave {
+	opacity: 0.6;
+}
+.page.ng-leave.ng-leave-active {    /* Animations ends */
+	opacity: 0;
+}		

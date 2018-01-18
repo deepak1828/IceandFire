@@ -1,0 +1,33 @@
+    
+<div class="jumbotron bg">
+  <div class="container-fluid">
+    <div class="row book-jumbo" ng-repeat="data in bookCtrl.bookInfo">
+      <div class="col-xs-12 text-center">
+        <h2 style="color:#006064;font-family:cursive;">
+          <span style="margin-top:0px 5px;color:#4CAF50"><i class="fa fa-snowflake-o"></i></span>{{ data.name }}
+          <span style="margin:0px 5px;color:#4CAF50"><i class="fa fa-snowflake-o"></i></span>
+        </h2>
+      </div>
+
+      <div class="col-xs-12 col-md-5 text-center">
+        <h5 style="color:#455A64"><b>Author</b> : {{ bookCtrl.author }}</h5>
+        <h5 style="color:#455A64"><b>Country</b> : {{ data.country }}</h5>
+        <h5 style="color:#455A64"><b>Pages</b> : {{ data.numberOfPages }}</h5>
+        <h5 style="color:#455A64"><b>Publisher</b> : {{ data.publisher }}</h5>
+        <h5 style="color:#455A64"><b>Released on</b> : {{ data.released | date:medium }}</h5>
+      </div>
+
+      <div class="col-xs-12 col-md-5 col-md-offset-1 text-center book-content" ng-if = 'data.povCharacters.length >= 1'>
+        <h4 style="color:#009688;">Main Characters</h4>
+        <hr style="width: 50%; border-top: 1.5px solid #0c0909; margin-top: 5px;"></hr>
+        <div ng-repeat ="pov in data.povCharacters">
+          <h5><a ng-href ='#/characters/{{ pov.split("/").pop() }}'>{{ pov }}</a></h5>
+        </div>
+      </div>  <!--  MainCharacters div ends -->
+
+      <div class="col-xs-12" style="display: flex;justify-content: center;margin: 10px 0px;">
+        <a ng-click="bookCtrl.navigateBack()" class="btn btn-default btn-custom" style="display: inline-block;">Back</a>
+      </div> <!-- toggle-entry ends -->
+    </div>  <!--  row ends -->
+  </div>  
+</div>  <!-- jumbotron ends  -->

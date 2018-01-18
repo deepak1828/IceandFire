@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="iceAndFire">
+	<head>
+		<title>Ice and Fire</title>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                  
+                  <!-- FONT AWESOME -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+                  <!-- Custom CSS -->
+		<link href="main.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body ng-controller="totalController as totCtrl">
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">		
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="font-family: cursive;" ng-href="#/">Ice 'n' Fire</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a ng-href='#/main' style="font-family: cursive;">Let's Get in </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        
+    <div id="img-slider">
+      <img class="slides img-responsive" src="images/head01.png" alt="image1"/>
+      <img class="slides img-responsive" src="images/head02.png" alt="image2"/>
+      <img class="slides img-responsive" src="images/head03.png" alt="image3"/>
+      <img class="slides img-responsive" src="images/head04.png" alt="image4"/>
+      <img class="slides img-responsive" src="images/head05.png" alt="image5"/>
+      <button class="btn" onclick="plusIndex(-1)" id="btn1">&#10094</button>
+      <button class="btn" onclick="plusIndex(1)" id="btn2">&#10095</button>
+		</div>
+
+    
+    <div class="container-fluid page" ng-view>
+
+
+    </div>
+		
+    <footer style="padding:5px; background-color:#795548; color: #FFFF8D; border-top:5px solid #BCAAA4;margin-top: 30px; font-family: cursive;">
+            
+      <h3 class="text-center">&copy;ICE - and - FIRE </h3> 
+    </footer>
+
+    <script type="text/javascript" src="slides.js"></script>
+		                  <!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		              <!-- Latest bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+              			
+                  <!--Angular JS Files -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+
+                  <!--Custom Angular Files-->
+		<script type="text/javascript" src="angular/app.js"></script>
+    <script type="text/javascript" src="angular/directives/custom-directive.js"></script>
+    <script type="text/javascript" src="angular/services/services.js"></script>
+
+                  <!-- CONTROLLERS -->  
+    <script type="text/javascript" src="angular/controllers/total-controller.js"></script>
+		<script type="text/javascript" src="angular/controllers/book-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/house-controller.js"></script>
+    <script type="text/javascript" src="angular/controllers/char-controller.js"></script>
+                        
+                  <!-- ROUTE FILE -->
+		<script type="text/javascript" src="angular/routes.js"></script>
+
+	</body>
+</html>

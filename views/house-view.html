@@ -1,0 +1,38 @@
+<div class="jumbotron bg">
+  <div class="container-fluid">
+    <div class="row" ng-repeat = "data in houseCtrl.houseInfo">
+      <div class="col-xs-12 text-center house-jumbo">
+        <div style="color: #CDDC39;">
+          <h4 style="margin: 15px 0px;" ng-if ='data.name != ""'>
+            <span style="margin:0px 5px;"><i class="fa fa-snowflake-o"></i></span>
+              <p style="color:#EEFF41;font-family: cursive;">{{ data.name }}</p>
+              <span style="margin:0px 5px;"><i class="fa fa-snowflake-o"></i></span>
+          </h4>
+          <h4 ng-if='data.region != ""'>Region : <b>{{ data.region }}</b></h4>
+          <h4 ng-if='data.seats[0] != ""'>Seats : <b>{{ data.seats[0] }}</b></h4>
+          <h4 ng-if='data.titles[0] != ""'>Titles : <b>{{ houseCtrl.titles }}</b></h4>
+          <h4 ng-if='data.founded != ""'>Founded : <b>{{ data.founded }}</b></h4>
+          <p ng-if='data.words" !=""''> Words: {{ data.words }}
+            <h4 ng-if='data.heir != ""'>Heir : <a ng-href='#/characters/{{ data.heir.split("/").pop() }}' style="color: #6aa2d2;">{{ data.heir }}</a>
+            </h4>
+            <h4 ng-if='data.currentLord != ""'>Current Lord : <a ng-href='#/characters/{{ data.currentLord.split("/").pop() }}' style="color: #6aa2d2;">{{data.currentLord }}</a>
+            </h4>
+            <h4 ng-if='data.overlord != ""'>Overlord : <a ng-href='#/houses/{{ data.overlord.split("/").pop() }}' style="color: #6aa2d2;">{{ data.overlord }}</a>   </h4>
+            <p ng-if='data.coatOfArms != ""'>Coat Of Arms : "{{ data.coatOfArms }}"</p>
+        </div>
+
+        <div ng-if = 'data.swornMembers.length >= 1' style="color: #E6EE9C;">
+          <h3>Sworn Members</h3>
+          <hr style="width: 50%; border-top: 1px solid #E6EE9C; margin-top: 5px;"></hr>
+          <div ng-repeat ="sworn in data.swornMembers">
+            <h4><a ng-href ='#/characters/{{ sworn.split("/").pop() }}'>{{ sworn }}</a></h4>
+          </div> 
+				</div>  <!--  sworn members div ends -->
+
+				<div class=" col-xs-12" style="display: flex;justify-content: center;margin: 10px 0px;">
+          <a ng-click="houseCtrl.navigateBack()" class="btn btn-default btn-custom" style="display: inline-block;">Back</a> 
+        </div>
+			</div>
+		</div>	<!-- Row ends -->
+  </div> <!-- Container Ends -->
+</div> <!-- Jumbotron ends -->

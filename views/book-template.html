@@ -1,0 +1,17 @@
+
+
+<div class="col-xs-12 col-md-3 col-md-offset-1 books text-center">
+	
+	<img src="images/books.png" class="img-responsive type-image-book">
+
+	<h3 class="text-center" style="margin-top:40px;color:#455A64">{{ item.name }}</h3>
+
+	<h5 class="text-center"><strong style="color:#6D4C41">ISBN : {{ item.isbn }}</strong></h5>
+
+	<h5 class="text-center"><strong style="color:#6D4C41">No of Pages : {{ item.numberOfPages }}</strong></h5>
+
+	<h5 class="text-center"><strong style="color:#6D4C41">Released on : {{ item.released | date:medium }}</strong></h5>
+
+	<a ng-href ='#/books/{{ item.url.split("/").pop() }}' class="btn btn-default btn-custom" style="display: inline-block;">Know more</a> 
+
+</div>

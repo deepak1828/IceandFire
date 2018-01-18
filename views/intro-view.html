@@ -1,0 +1,162 @@
+
+<!-- Introduction tabs to all-->
+<div class="row text-center">
+	<div class="col-md-3 col-sm-6 col-xs-6">
+		<a ng-click="totCtrl.allShowHide()" class="intro-nav">
+			<img src="images/all.png" alt="all images" class="img-responsive main-image">
+			<h4>All Details</h4>
+		</a>
+	</div>
+	<div class="col-md-3 col-sm-6 col-xs-6">
+		<a ng-click="totCtrl.bookShowHide()" class="intro-nav">
+			<img src="images/books2.png" alt="books" class="img-responsive main-image">
+			<h4>All Books</h4>
+		</a>
+	</div>
+	<div class="col-md-3 col-sm-6 col-xs-6">
+		<a ng-click="totCtrl.houseShowHide()" class="intro-nav">
+			<img src="images/houses.png" alt="houses" class="img-responsive main-image">
+			<h4>All Houses</h4>
+		</a>
+	</div>
+	<div class="col-md-3 col-sm-6 col-xs-6">
+		<a ng-click="totCtrl.charsShowHide()" class="intro-nav">
+			<img src="images/characters.png" alt="characters" class="img-responsive main-image">
+			<h4>All Characters</h4>
+		</a>
+	</div>
+</div>
+
+<div class="container-fluid all-details" ng-if = "totCtrl.value1">  <!-- ALL DETAILS STARTS -->
+<!-- Filter Options and sort Options -->
+
+	<div class="row text-center">
+		<div class="col-md-3 col-md-offset-1">
+			<div class="input-group filt-book" style="margin:10px 0px;">
+				<span class="input-group-addon">Search by Name
+					<span class="glyphicon glyphicon-search" style="color: black;"></span>
+				</span>
+				<input type="text" name="book" class="form-control" placeholder="Book, Char or House" ng-model="searchName1.name">
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<button class="btn btn-danger" type="button" ng-click="totCtrl.sortAllKey =! totCtrl.sortAllKey" style="margin:10px 0px;">SORT
+				<span  ng-show="!totCtrl.sortAllKey" style="margin-left: 5px;"><i class="glyphicon glyphicon-arrow-down"></i></span>
+				<span ng-show="totCtrl.sortAllKey" style="margin-left: 5px;"><i class="glyphicon glyphicon-arrow-up"></i></span>
+			</button>
+		</div>
+
+		<div class="col-md-3 col-md-offset-1">
+			<div class="input-group filt-book" style="margin:10px 0px;">
+				<span class="input-group-addon">Search Other
+					<span class="fa fa-eye" style="color: black;"></span>
+				</span>
+				<input type="text" name="book" class="form-control" placeholder="Other things" ng-model="searchAny">
+			</div>
+		</div> 
+	</div>  <!-- Filter for all things ends -->
+
+	<div class="row">
+		<div ng-repeat = "item in totCtrl.allInfo | orderBy: totCtrl.sortAllKey? '-name':'name' | filter : searchAny | filter : searchName1 | limitTo : totCtrl.noOfElements">
+
+			<book-dir ng-if ="item.isbn"></book-dir> 
+
+			<char-dir ng-if ="item.gender"></char-dir>
+
+			<house-dir ng-if ="item.region"></house-dir>
+	    
+	    </div>
+	    
+	    <to-top></to-top>
+	    
+	</div>
+
+	<div class="col-xs-12 col-md-5 col-md-offset-3 text-center" style="margin-top: 30px;">
+		<button class="btn btn-info" style="padding: 5px 15px;" ng-click="totCtrl.viewMore()">More Info</button>
+	</div>
+
+</div> 
+
+					<!-- Books details  -->
+<div class="container-fluid book-details" ng-if ="totCtrl.value2">  
+	
+	<div class="row text-center"> <!--Sort Button -->
+		<div class="col-xs-12 col-md-5 col-md-offset-3">
+			<button class="btn btn-danger" type="button" ng-click="totCtrl.sortKey1 =! totCtrl.sortKey1">Name<span ng-show="totCtrl.sortKey1" style="margin-left: 5px;"><i class="glyphicon glyphicon-arrow-down"></i></span>
+				<span ng-show="!totCtrl.sortKey1" style="margin-left: 5px;"><i class="glyphicon glyphicon-arrow-up"></i></span>
+			</button>
+		</div>
+	</div> 
+
+	<div class="row">
+		<div ng-repeat = "item in totCtrl.bookInfo | orderBy : !totCtrl.sortKey1? 'name':'-name' | filter : searchName1 | filter : searchName2">
+			<book-dir></book-dir>
+		</div>
+		<to-top></to-top>
+	</div>
+</div>   <!-- Books details ends here -->
+
+
+					<!--House details started here-->
+<div class="container-fluid house-details" ng-if="totCtrl.value4">
+
+	<div class="row text-center"><!-- Sort button -->
+		<div class="col-xs-12 col-md-5 col-md-offset-3">
+			<button class="btn btn-danger" type="button" style="margin: 10px 0px;" ng-click="totCtrl.sortKey3 =! totCtrl.sortKey3">Name
+				<span ng-show="!totCtrl.sortKey3" style="margin-left: 10px;"><i class="glyphicon glyphicon-arrow-up"></i>
+				</span>
+				<span ng-show="totCtrl.sortKey3" style="margin-left: 10px;"><i class="glyphicon glyphicon-arrow-down"></i>
+				</span>
+			</button>
+		</div>
+	</div> 
+
+	<div class="row" id="house1">
+		<div ng-repeat = "item in totCtrl.houseInfo | orderBy : !totCtrl.sortKey3? 'name' : '-name' | filter : searchName2 | filter : searchName3">
+			<house-dir></house-dir>
+		</div>
+		<to-top></to-top>
+	</div>
+
+	<div class="toggle-entry">   <!-- Top next and previous buttons-->
+		<a ng-click="totCtrl.prevFunc('houses')"  style="cursor: pointer;color:black">
+			<span><i class="fa fa-chevron-left fa-2x text-danger" style="color:black;"></i></span>
+		</a>
+		<a ng-click="totCtrl.nextFunc('houses')"  style="cursor: pointer;color:black">
+			<span><i class="fa fa-chevron-right fa-2x text-danger" style="color:black;"></i></span>
+		</a>
+	</div>
+</div>  <!--House details ends here-->
+
+
+					<!-- CHARACTER STARTS -->
+<div class="container-fluid char-details" ng-if ="totCtrl.value3">
+
+	<div class="row text-center">      <!-- Sort button-->
+		<div class="col-xs-12 col-md-5 col-md-offset-3">
+			<button class="btn btn-danger" type="button" ng-click="totCtrl.sortKey2 =! totCtrl.sortKey2">Name
+				<span ng-show="!totCtrl.sortKey2" style="margin-left: 10px;"><i class="glyphicon glyphicon-arrow-up"></i>
+				</span>
+				<span ng-show="totCtrl.sortKey2" style="margin-left: 10px;"><i class="glyphicon glyphicon-arrow-down"></i>
+				</span>
+			</button>
+		</div>
+	</div> 
+
+	<div class="row">
+		<div ng-repeat = "item in totCtrl.charInfo | orderBy: totCtrl.sortKey2? '-name':'name' | filter : searchName2 | filter : searchName3">
+			<char-dir></char-dir>
+		</div>
+		<to-top></to-top>
+	</div>
+
+	<div class="toggle-entry">   <!-- Char Top and Prev buttns -->
+		<a ng-click="totCtrl.prevFunc('characters')" style="cursor: pointer;">
+			<span><i class="fa fa-chevron-left fa-2x text-danger" style="color:black;"></i></span>
+		</a>
+		<a ng-click="totCtrl.nextFunc('characters')"  style="cursor: pointer;">
+			<span><i class="fa fa-chevron-right fa-2x text-danger" style="color:black;"></i></span>
+		</a>
+	</div>
+</div>   <!-- Characters ends here -->

@@ -1,0 +1,12 @@
+
+<div class="col-xs-12 col-md-3 col-md-offset-1 text-center houses">
+     
+     <img src="images/house.png" class="img-responsive type-image">
+
+     	<h3 style="color:#0091EA"> {{ item.name }}</h3>
+
+     	<h4 ng-if ="item.region !=''">Region : {{ item.region }}</h4>
+
+     	<a ng-href='#/houses/{{item.url.split("/").pop()}}' class="btn btn-default btn-custom-house" style="display:inline-block;">Know more</a>    
+       
+</div>

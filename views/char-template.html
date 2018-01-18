@@ -1,0 +1,14 @@
+
+<div class="col-xs-12 col-md-3 col-md-offset-1 characters text-center" ng-if = 'item.name !=""'>
+	
+	<img src="images/crown.png" class="img-responsive type-image">
+	
+	<h4 style="color:#AEEA00"><strong style="color:#64DD17">Name : </strong>{{ item.name }}</h4>
+    
+    <h4 ng-if = 'item.aliases[0] !=""' style="color:#AEEA00"><strong style="color:#64DD17">Known as :  </strong>" {{ item.aliases[0] }} "</h4>
+    
+    <h4 ng-if = 'item.gender !=""' style="color:#AEEA00"><strong style="color:#64DD17">Gender : </strong>{{ item.gender }}</h4> 
+    
+    <a ng-href='#/characters/{{ item.url.split("/").pop() }}' class="btn btn-default btn-custom" style="display: inline-block;">Know more</a>
+
+</div>
